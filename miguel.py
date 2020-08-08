@@ -72,4 +72,4 @@ class Client(discord.Client):
 
 if __name__ == '__main__':
     client = Client()
-    client.run('NjUxNTcxNTE3NTE5Mjk4NTkw.XtrZCQ.aF4veEFHx79akgmS9zl6yXRUBkM')
+    client.run('API CODE')
