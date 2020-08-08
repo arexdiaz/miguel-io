@@ -7,7 +7,6 @@ import msvcrt
 '''
 TODO:
 Improve line 37's exception handler
-Add voice hotkeys
 Add voice recorder
 Keyboard listener is not that good so it needs improvement
 '''
@@ -44,7 +43,7 @@ class Client(discord.Client):
                 except:
                     pass
                 Voice_Client.source = discord.PCMVolumeTransformer(Voice_Client.source)
-                Voice_Client.source.volume = 10.0
+                Voice_Client.source.volume = 1.0
                 
             if x != False and x.decode() == '/':
                 print('Client disconnected from voice')
@@ -54,11 +53,10 @@ class Client(discord.Client):
 
     async def kb_listener_loop(self):
         print('Starting listener')
-        future = asyncio.ensure_future(self.kb_listner())
+        asyncio.ensure_future(self.kb_listner())
 
     async def on_ready(self):
         print('Logged in as {0}'.format(self.user))
-        # asyncio.get_event_loop().run_until_complete(self.kb_listener_loop())
         await self.kb_listener_loop()
         await self.change_presence(status=discord.Status.offline)
 
